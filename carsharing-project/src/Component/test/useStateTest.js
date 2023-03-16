@@ -1,7 +1,8 @@
 import React, {useState} from "react";
-
+import './vss.css'
  function useStateTest() {
-    const [Number, SetNumber]= useState(0)
+    //useState Test
+    const [Number, SetNumber] = useState(0);
     const up = () =>{
         console.log('+1');
         SetNumber(Number +1);
@@ -12,7 +13,7 @@ import React, {useState} from "react";
     }
     return(
     <div>
-    <h1>{Number}</h1>
+    <h1 className="hh">{Number}</h1>
       <button onClick={up}>+1</button>
       <button onClick={down}>-1</button>
       </div>
