@@ -46,6 +46,7 @@ function InputSample() {
         {name} ({nickname})
       </div>
     </div>
+    
   );
 }
 
