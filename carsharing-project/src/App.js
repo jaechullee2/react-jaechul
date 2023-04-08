@@ -67,20 +67,14 @@ function reducer(state, action) {
 }
 
 function App() {
+  const [{ username, email }, onChange, reset] = useInputs({
+    username: '',
+    email: ''
+  });
   const [state, dispatch] = useReducer(reducer, initialState);
   const nextId = useRef(4);
 
   const { users } = state;
-  const { username, email } = state.inputs;
-
-  const onChange = useCallback(e => {
-    const { name, value } = e.target;
-    dispatch({
-      type: 'CHANGE_INPUT',
-      name,
-      value
-    });
-  }, []);
 
   const onCreate = useCallback(() => {
     dispatch({
@@ -92,7 +86,7 @@ function App() {
       }
     });
     nextId.current += 1;
-  }, [username, email]);
+  }, [username, email, reset]);
 
   const onToggle = useCallback(id => {
     dispatch({
