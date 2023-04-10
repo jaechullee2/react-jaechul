@@ -1,12 +1,23 @@
-
+const mysql = require('mysql');
+const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
 const port = 3001;
 const cors = require('cors');
+const env = require("dotenv").config({ path: "./.env" });
 const passport = require('passport');
 const KakaoStrategy = require('passport-kakao').Strategy;
 
-const KAKAO_CLIENT_ID = 
+const conn = new mysql.createConnection({
+    host: process.env.host,
+    user: process.env.user,
+    password: process.env.password,
+    database: process.env.database
+  });
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
+app.use(bodyParser.json());
 // 카카오 로그인 설정
 passport.use(new KakaoStrategy({
     clientID: KAKAO_CLIENT_ID,
