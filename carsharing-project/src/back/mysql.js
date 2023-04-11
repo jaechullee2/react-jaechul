@@ -20,8 +20,8 @@ app.use(cors());
 app.use(bodyParser.json());
 // 카카오 로그인 설정
 passport.use(new KakaoStrategy({
-    clientID: KAKAO_CLIENT_ID,
-    clientSecret: KAKAO_CLIENT_SECRET,
+    clientID: process.env.KAKAO_CLIENT_ID,
+    clientSecret: process.env.KAKAO_CLIENT_SECRET,
     callbackURL: "http://localhost:3000/auth/kakao/callback"
   },
   function(accessToken, refreshToken, profile, done) {
