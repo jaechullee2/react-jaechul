@@ -7,7 +7,7 @@ return(
         <input name='email' placeholder='이메일'></input>
     </div>
     <div>
-        <input name='secret'></input>
+        <input name='secret'> </input>
     </div>
     <div>
         <button type='submit'>로그인</button>
