@@ -18,6 +18,19 @@ const conn = new mysql.createConnection({
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(bodyParser.json());
+
+app.post('/data', (req, res) => {
+  // console.log(req);
+  var procs = req.body.process;
+  conn.query('SELECT * FROM sys', (err, data) => {
+    if (err) {
+      console.log("데이터 가져오기 실패");
+    } else {
+      // console.log(data);
+      res.send(data);
+    }
+  })
+})
 // 카카오 로그인 설정
 passport.use(new KakaoStrategy({
     clientID: process.env.KAKAO_CLIENT_ID,
