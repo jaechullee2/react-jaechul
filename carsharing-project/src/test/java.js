@@ -6,7 +6,7 @@ public class Post {
 
     private String title;
 
-    @Column(columnDefinition = "TEXT")
+    @Column( columnDefinition = "TEXT" )
     private String content;
 
     @Temporal(TemporalType.TIMESTAMP)
